@@ -9,7 +9,7 @@ angvel = 7.2921150e-5
 tilt = np.radians(23.439292)
 # tilt = np.radians(0)
 
-df2 = pd.read_csv("./hsdata.csv")
+df2 = pd.read_csv("./data/starting_data/hsdata.csv")
 times_minutes = df2["MISSION ELAPSED TIME (mins)"].to_list()
 times = [i*60 for i in times_minutes]
 
@@ -31,15 +31,15 @@ for i, antenna in enumerate(antenna_coords):
         antenna_pos_dict["Z"].append(-X * np.sin(tilt) * np.cos(angvel * t) + Y * np.sin(tilt) * np.sin(angvel * t) + Z * np.cos(tilt))
 # print(antenna_coords)
 
-# fig = plt.figure()
-# ax = fig.add_subplot(projection='3d')
-# for i in range(4):
-#     ax.plot(df.iloc[i]["X (km)"],df.iloc[i]["Y (km)"], df.iloc[i]["Z (km)"],'ro',label=df.iloc[i]["Name"])
-# for i in range(4):
-#     ax.plot(antenna_coords[i][0], antenna_coords[i][1], antenna_coords[i][2], label=df.iloc[i]["Name"])
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+for i in range(4):
+    ax.plot(df.iloc[i]["X (km)"],df.iloc[i]["Y (km)"], df.iloc[i]["Z (km)"],'ro',label=df.iloc[i]["Name"])
+for i in range(4):
+    ax.plot(antenna_pos_dict["X"][12981*i:12981*(i+1)], antenna_pos_dict["Y"][12981*i:12981*(i+1)], antenna_pos_dict["Z"][12981*i:12981*(i+1)], label=df.iloc[i]["Name"])
 
-# plt.legend()
-# plt.show()
+plt.legend()
+plt.show()
 
-df_out = pd.DataFrame(antenna_pos_dict, columns=list(antenna_pos_dict.keys()))
-df_out.to_csv("antenna_plot.csv",index=False)
+# df_out = pd.DataFrame(antenna_pos_dict, columns=list(antenna_pos_dict.keys()))
+# df_out.to_csv("./data/antenna_plot.csv",index=False)
