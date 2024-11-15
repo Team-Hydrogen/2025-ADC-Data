@@ -1,4 +1,4 @@
-# 2024 NASA App Development Challenge Data
+# 2025 NASA App Development Challenge Data
 This is Team Hydrogen's application for the 2025 NASA App Development Challenge. All files regarding the computation of data can be found in this repository.
 
 ## Data Summary
@@ -23,12 +23,12 @@ Calculated or Given Link Budget for all timestamps provided in hsdata.csv/bonusd
 Calculated Slant Distance or Distance between Antenna and Satellite for all timestamps provided in bonusdata.csv. Slant Distance is given in km and calculated from the predicted position of the antennae and the Offnominal position path of the satellite. NOTE: The csv file is split up in equal intervals of 12981 rows, each detailing the slant distance between a particular antenna and the satellite. The order of the antennae follows "DSS24", "DSS34", "DSS54", "WPSA"
 
 ### Disclaimers
-The data provided in this repository is not guaranteed to be free from error. Please double-check and note if any values seem incorrect in the files. Please contact @vigcode123 if different layouts/data/design changes are needed in an extra CSV file to further aid the incorporation of the data into the Unity scene.
+The data provided in this repository is not guaranteed to be free from error. Please double-check and note if any values seem incorrect in the files. Please contact [Vignesha Jayakumar](https://github.com/vigcode123) if different layouts/data/design changes are needed in an extra CSV file to further aid the incorporation of the data into the Unity scene.
 
 ### Future Updates
-- Requested by @aaravdave: I am working on the speed up/down calculations for the animation.
+- **Requested by [Aarav Dave](https://github.com/aaravdave):** [Vignesha Jayakumar](https://github.com/vigcode123) is working on the speed up/down calculations for the animation.
 
 ### Credits
 Team Hydrogen would like to thank the following people for their unwavering support and encouragement throughout the development of our application.
-- Thank you to Data and Machine Learning Specialist Vignesha Jayakumar (@vigcode123) for providing both the original and processed data and creating the original write-up.
-- Thank you to Lead Developer Aarin Dave (@aarindave) for editing this write-up for grammar, clarity, organization, and structure.
+- Thank you to Data and Machine Learning Specialist [Vignesha Jayakumar](https://github.com/vigcode123) for providing both the original and processed data and creating the original write-up.
+- Thank you to Lead Developer [Aarin Dave](https://github.com/aarindave) for editing this write-up for grammar, clarity, organization, and structure.
