@@ -3,10 +3,18 @@ This is Team Hydrogen's application for the 2025 NASA App Development Challenge.
 
 ## Data Summary
 
+
 ### Starting Data
-- **Antenna Spherical Starting Antennae Coordinates** given in the Handbook in the format of Lat (deg) ,Long (deg) , Geodetic Terrain height (km).
-- **HS Data Starting High School Data** detailing the position and velocity info of the Satellite, Earth, Moon, the line of sight and slant range of the antennae, and the timestamps collected.
-- **Bonus Data Starting Bonus Data** showing the off-nominal path and does not contain line of sight or link budget
+
+#### Antenna Spherical Starting Antennae Coordinates
+Given in the Handbook in the format of Lat (deg) ,Long (deg) , Geodetic Terrain height (km).
+
+#### HS Data Starting High School Data
+Detailing the position and velocity info of the Satellite, Earth, Moon, the line of sight and slant range of the antennae, and the timestamps collected.
+
+#### Bonus Data Starting Bonus Data
+Showing the off-nominal path and does not contain line of sight or link budget
+
 
 ### Calculated Position-Based Data
 
@@ -26,7 +34,7 @@ Calculated Slant Distance or Distance between Antenna and Satellite for all time
 The data provided in this repository is not guaranteed to be free from error. Please double-check and note if any values seem incorrect in the files. Please contact [Vignesha Jayakumar](https://github.com/vigcode123) if different layouts/data/design changes are needed in an extra CSV file to further aid the incorporation of the data into the Unity scene.
 
 ### Future Updates
-- [Vignesha Jayakumar](https://github.com/vigcode123) is working on the speed up/down calculations for the animation **as requested by [Aarav Dave](https://github.com/aaravdave):**
+- [Vignesha Jayakumar](https://github.com/vigcode123) is working on the speed up/down calculations for the animation **as requested by [Aarav Dave](https://github.com/aaravdave)**.
 
 ### Credits
 Team Hydrogen would like to thank the following people for their unwavering support and encouragement throughout the development of our application.
