@@ -26,7 +26,7 @@ Calculated Slant Distance or Distance between Antenna and Satellite for all time
 The data provided in this repository is not guaranteed to be free from error. Please double-check and note if any values seem incorrect in the files. Please contact [Vignesha Jayakumar](https://github.com/vigcode123) if different layouts/data/design changes are needed in an extra CSV file to further aid the incorporation of the data into the Unity scene.
 
 ### Future Updates
-- **Requested by [Aarav Dave](https://github.com/aaravdave):** [Vignesha Jayakumar](https://github.com/vigcode123) is working on the speed up/down calculations for the animation.
+- [Vignesha Jayakumar](https://github.com/vigcode123) is working on the speed up/down calculations for the animation **as requested by [Aarav Dave](https://github.com/aaravdave):**
 
 ### Credits
 Team Hydrogen would like to thank the following people for their unwavering support and encouragement throughout the development of our application.
