@@ -30,5 +30,5 @@ The data provided in this repository is not guaranteed to be free from error. Pl
 
 ### Credits
 Team Hydrogen would like to thank the following people for their unwavering support and encouragement throughout the development of our application.
-- Thank you to Data and Machine Learning Specialist Vignesha Jayakumar (@vigcode123) for creating the original write-up.
+- Thank you to Data and Machine Learning Specialist Vignesha Jayakumar (@vigcode123) for providing both the original and processed data and creating the original write-up.
 - Thank you to Lead Developer Aarin Dave (@aarindave) for editing this write-up for grammar, clarity, organization, and structure.
