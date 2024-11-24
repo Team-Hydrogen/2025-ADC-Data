@@ -26,13 +26,16 @@ class AntennaDataset(Dataset):
     def __init__(self, file_path):
         self.data = pd.read_csv(file_path)
 
-        for antenna in ["DS24", "DS34"]:
-            self.data[f"{antenna}_link_budget"] = convert_range_to_link_budget(antenna, self.data[f"Range {antenna}"])
-        for antenna in ["DS54", "WPSA"]:
-            self.data[f"{antenna}_link_budget"] = convert_range_to_link_budget(antenna, self.data[f"{antenna} Range"])
+        del self.data["Unnamed: 16"]
+        del self.data["Unnamed: 17"]
 
-        for antenna in ["DS24", "DS34", "DS54", "WPSA"]:
-            self.data[f"{antenna}_link_budget"] /= 10000.0
+        # for antenna in ["DS24", "DS34"]:
+        #     self.data[f"{antenna}_link_budget"] = convert_range_to_link_budget(antenna, self.data[f"Range {antenna}"])
+        # for antenna in ["DS54", "WPSA"]:
+        #     self.data[f"{antenna}_link_budget"] = convert_range_to_link_budget(antenna, self.data[f"{antenna} Range"])
+
+        # for antenna in ["DS24", "DS34", "DS54", "WPSA"]:
+        #     self.data[f"{antenna}_link_budget"] /= 10000.0
 
         self.features = self.data[[f"{antenna}_link_budget" for antenna in ["DS24", "DS34", "DS54", "WPSA"]]].values
         self.targets = np.argsort(-self.features, axis=1)
@@ -88,15 +91,16 @@ if __name__ == "__main__":
         "model_type": "LSTM"
     })
 
-    file_path = "./data/starting_data/hsdata.csv"
+    file_path = "./data/hsdata_altered.csv"
     batch_size = wandb.config.batch_size
     learning_rate = wandb.config.learning_rate
     epochs = wandb.config.epochs
 
     dataset = AntennaDataset(file_path)
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
     model = AntennaLSTM()
     criterion = nn.CrossEntropyLoss()
+    
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
     wandb.watch(model, log="all", log_freq=10)
