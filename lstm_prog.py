@@ -15,13 +15,6 @@ kb = -228.6
 Ts = 22
 
 
-def convert_range_to_link_budget(antenna, range_values):
-    dr = 34 if 'DS' in antenna else 12
-    for i in range(len(range_values)):
-        range_values[i] = (10**((1/10)*(Pt+Gt-losses+10*math.log10(nR*(math.pi*dr/la)**2)-20*math.log10(4000*math.pi*range_values[i]/la)-10*math.log10(Ts))))/1000
-    return np.minimum(range_values, 10000)
-
-
 class AntennaDataset(Dataset):
     def __init__(self, file_path):
         self.data = pd.read_csv(file_path)
