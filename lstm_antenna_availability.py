@@ -67,14 +67,24 @@ def predict_antenna(model, X):
     return predicted.item()
 
 # Hyperparameters
-input_size = 4  # 4 antennas
-hidden_size = 64
-num_layers = 2
-output_size = 4
+#Changes from last
+'''
+V1:
 n_past = 6
 n_future = 6
 epochs = 1000
-learning_rate = 0.001
+num_layers = 2
+hidden_size = 64
+'''
+
+input_size = 4  # 4 antennas
+hidden_size = 256
+num_layers = 4
+output_size = 4
+n_past = 25
+n_future = 25
+epochs = 600
+learning_rate = 0.0001
 
 wandb.init(project="antenna_prioritization", config={
     "batch_size": 16,
@@ -102,20 +112,25 @@ model_path = "antenna_prioritization_lstm.pth"
 torch.save(model.state_dict(), model_path)
 wandb.save(model_path)
 
-def prioritize_antenna(model, X, previous_antenna, switching_penalty=0.1):
+def prioritize_antenna(model, X, previous_antenna, switching_penalty=0.25):
     outputs = model(X.unsqueeze(0))
     probabilities = outputs.squeeze().numpy()
     
     if previous_antenna is not None:
-        probabilities[previous_antenna] += switching_penalty
+        probabilities[previous_antenna] -= switching_penalty
     
     return np.argmax(probabilities)
 
 #PREDICTION AND SWITCHING PENALTY
-# previous_antenna = None
-
-# for i in range(len(X)):
-#     sample = X[i]
-#     selected_antenna = prioritize_antenna(model, sample, previous_antenna)
-#     print(f"Time step {i+1}: Selected antenna {selected_antenna + 1}")
-#     previous_antenna = selected_antenna
+previous_antenna = None
+selected_antennas= []
+for i in range(len(X)):
+    sample = X[i]
+    selected_antenna = prioritize_antenna(model, sample, previous_antenna)
+    selected_antennas.append(selected_antenna)
+    # print(f"Time step {i+1}: Selected antenna {selected_antenna + 1}")
+    previous_antenna = selected_antenna
+df = pd.DataFrame(selected_antennas, columns=["Time (min)","Available Satellite"])
+data["MISSION ELAPSED TIME (min)"] = data["Time (min)"]
+df["Available Satellite"] = selected_antennas
+df.to_csv("antenna_availability_lstm.csv", index=False)
