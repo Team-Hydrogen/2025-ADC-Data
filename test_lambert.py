@@ -9,9 +9,9 @@ MU_EARTH = 398600.4418
 
 def get_user_input():
     print("Enter the initial position vector (km) as x, y, z:")
-    r1 = np.array(list(map(float, input().split())))
+    r1 = np.array(list(map(float, input().split(','))))
     print("Enter the final position vector (km) as x, y, z:")
-    r2 = np.array(list(map(float, input().split())))
+    r2 = np.array(list(map(float, input().split(','))))
     print("Enter the time of flight (seconds):")
     tof = float(input())
     return r1, r2, tof
