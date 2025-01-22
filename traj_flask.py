@@ -8,10 +8,10 @@ app = Flask(__name__)
 def trajectory():
     try:
         data = request.get_json()
-        r1 = np.array(data['r1'])
-        r2 = np.array(data['r2'])
-        tof = data['tof']
-        start_time = data['start_time']
+        r1 = np.array(data['origin'])
+        r2 = np.array(data['destination'])
+        tof = data['flightTime']
+        start_time = data['startTime']
 
         test_lambert.main(r1, r2, tof, start_time)
         send_file('trajectory.csv', as_attachment=True), 200
