@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, send_file
 import test_lambert
+import numpy as np
 
 app = Flask(__name__)
 
