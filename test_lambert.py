@@ -43,7 +43,7 @@ def propagate_orbit(r0, v0, tof, mu_earth, mu_moon, moon_position):
     sol = solve_ivp(three_body_equations, t_span, y0, args=(mu_earth, mu_moon, moon_position), t_eval=t_eval, rtol=1e-9, atol=1e-9)
     return sol.t, sol.y.T
 
-def main(r1, r2, tof, start_time):
+def main(r1, r2, tof,start_time):
     
     # Solve Lambert's problem to find initial and final velocities
     v1_lambert, v2_lambert = izzo2015(MU_EARTH, r1, r2, tof)
@@ -58,10 +58,10 @@ def main(r1, r2, tof, start_time):
     print("Trajectory data saved to 'trajectory.csv'.")
     
     # 3D plot of trajectory
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.plot(states[:, 0], states[:, 1], states[:, 2])
-    ax.set_xlabel('x (km)')
-    ax.set_ylabel('y (km)')
-    ax.set_zlabel('z (km)')
-    plt.show()
+    # fig = plt.figure()
+    # ax = fig.add_subplot(111, projection='3d')
+    # ax.plot(states[:, 0], states[:, 1], states[:, 2])
+    # ax.set_xlabel('x (km)')
+    # ax.set_ylabel('y (km)')
+    # ax.set_zlabel('z (km)')
+    # plt.show()
