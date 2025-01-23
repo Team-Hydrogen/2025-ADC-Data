@@ -14,7 +14,7 @@ def trajectory():
         start_time = data['startTime']
 
         test_lambert.main(r1, r2, tof, start_time)
-        send_file('trajectory.csv', as_attachment=True)
+        return send_file('trajectory.csv', as_attachment=True)
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
