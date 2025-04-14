@@ -30,12 +30,15 @@ Calculated or Given Link Budget for all timestamps provided in hsdata.csv/bonusd
 #### Slant Distance Offnominal
 Calculated Slant Distance or Distance between Antenna and Satellite for all timestamps provided in bonusdata.csv. Slant Distance is given in km and calculated from the predicted position of the antennae and the off-nominal position path of the satellite. **NOTE:** The CSV file is split up in equal intervals of 12,981 rows, each detailing the slant distance between a particular antenna and the satellite. The order of the antennae is DSS24, DSS34, DSS54, and WPSA.
 
+#### Bonus/HS Data Altered
+Containing all the pertinent calculated information in one file for facilitated access in the Unity application. These files are the most heavily utilized as the others are for documentation and cross-reference.
+
 ### Disclaimers
 The data provided in this repository is not guaranteed to be free from error. Please double-check and note if any values seem incorrect in the files. Please contact [Vignesha Jayakumar](https://github.com/vigcode123) if different layouts/data/design changes are needed in an extra CSV file to further aid the incorporation of the data into the Unity scene.
 
 ### Future Updates
-- [Vignesha Jayakumar](https://github.com/vigcode123) is working on the speed up/down calculations for the animation **as requested by [Aarav Dave](https://github.com/aaravdave)**.
-
+- [Vignesha Jayakumar](https://github.com/vigcode123) is working on Bi-directional LSTM algorithms to advise on the antenna prioritization, basing directly on the link budget calculations. The model will look at past and future rows to maximize the connection speed while minimizing the power required to switch between desired ground communicative antennae.
+- 
 ### Credits
 Team Hydrogen would like to thank the following people for their unwavering support and encouragement throughout the development of our application.
 - Thank you to Data and Machine Learning Specialist [Vignesha Jayakumar](https://github.com/vigcode123) for providing both the original and processed data and creating the original write-up.
