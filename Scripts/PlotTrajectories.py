@@ -1,16 +1,34 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df1 = pd.read_csv("./data/starting_data/hsdata.csv")
-df2 = pd.read_csv("./data/starting_data/bonusdata.csv")
-#MISSION ELAPSED TIME (min),Rx(km)[J2000-EARTH],Ry(km)[J2000-EARTH],Rz(km)[J2000-EARTH]
-#plot both in 3d
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(df1['Rx(km)[J2000-EARTH]'], df1['Ry(km)[J2000-EARTH]'], df1['Rz(km)[J2000-EARTH]'], label='Trajectory1', color='blue')
-ax.plot(df2['Rx(km)[J2000-EARTH]'], df2['Ry(km)[J2000-EARTH]'], df2['Rz(km)[J2000-EARTH]'], label='Trajectory2', color='orange')
-ax.set_xlabel('x (km)')
-ax.set_ylabel('y (km)')
-ax.set_zlabel('z (km)')
+NOMINAL_MISSION_FILE_PATH = "Spreadsheets/Mission/Nominal/NominalMission.csv"
+OFF_NOMINAL_MISSION_FILE_PATH = "Spreadsheets/Mission/OffNominal/OffNominalMission.csv"
+
+GEOCENTRIC_X = "Rx(km)[J2000-EARTH]"
+GEOCENTRIC_Y = "Ry(km)[J2000-EARTH]"
+GEOCENTRIC_Z = "Rz(km)[J2000-EARTH]"
+
+nominal_df = pd.read_csv(NOMINAL_MISSION_FILE_PATH)
+off_nominal_df = pd.read_csv(OFF_NOMINAL_MISSION_FILE_PATH)
+
+figure = plt.figure()
+
+ax = figure.add_subplot(111, projection='3d')
+
+ax.plot(
+    nominal_df[GEOCENTRIC_X],
+    nominal_df[GEOCENTRIC_Y],
+    nominal_df[GEOCENTRIC_Z],
+    label='Nominal Trajectory', color='blue')
+ax.plot(
+    off_nominal_df[GEOCENTRIC_X],
+    off_nominal_df[GEOCENTRIC_Y],
+    off_nominal_df[GEOCENTRIC_Z],
+    label='Off-nominal Trajectory', color='orange')
+
+ax.set_xlabel('X (km)')
+ax.set_ylabel('Y (km)')
+ax.set_zlabel('Z (km)')
+
 plt.legend()
 plt.show()
