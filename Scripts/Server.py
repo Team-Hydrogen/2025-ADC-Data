@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, send_file
-import cislunar_trajectory
+import Scripts.CislunarTrajectory as CislunarTrajectory
 import numpy as np
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ def trajectory():
         tof = data['flightTime']
         start_time = data['startTime']
 
-        cislunar_trajectory.main(r1, r2, v1, v2, tof, start_time)
+        CislunarTrajectory.main(r1, r2, v1, v2, tof, start_time)
         return send_file('trajectory.csv', as_attachment=True)
     except Exception as e:
         return jsonify({'error': str(e)}), 400
